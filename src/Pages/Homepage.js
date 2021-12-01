@@ -3,7 +3,7 @@ import React from 'react'
 const Homepage = () => {
     return (
         <div>
-            Homepage
+            Main CryptoPage
         </div>
     )
 }
