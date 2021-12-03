@@ -1,11 +1,11 @@
 import React from 'react'
 
-const CryptoPage = () => {
+const CoinPage = () => {
     return (
         <div>
-            CryptoPage
+            Crypto
         </div>
     )
 }
 
-export default CryptoPage
+export default CoinPage

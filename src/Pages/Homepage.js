@@ -1,10 +1,14 @@
 import React from 'react'
+import Banner from '../Components/Banner/Banner'
+import Coinstable from '../Components/CoinsTable'
 
 const Homepage = () => {
     return (
-        <div>
-            Main CryptoPage
-        </div>
+        <>
+            <Banner />
+            <Coinstable />
+            
+        </>
     )
 }
 

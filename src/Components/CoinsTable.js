@@ -22,16 +22,16 @@ export function numberWithCommas(x) {
   
     const useStyles = makeStyles({
       row: {
-        backgroundColor: "#16171a",
+        backgroundColor: "#E5E5E5",
         cursor: "pointer",
         "&:hover": {
-          backgroundColor: "#131111",
+          backgroundColor: "whitesmoke",
         },
-        fontFamily: "Montserrat",
+        fontFamily: "PT Mono",
       },
       pagination: {
         "& .MuiPaginationItem-root": {
-          color: "gold",
+          color: "black",
         },
       },
     });
@@ -59,7 +59,7 @@ export function numberWithCommas(x) {
   
     useEffect(() => {
       fetchCoins();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      
     }, [currency]);
   
     const handleSearch = () => {
@@ -75,29 +75,29 @@ export function numberWithCommas(x) {
         <Container style={{ textAlign: "center" }}>
           <Typography
             variant="h4"
-            style={{ margin: 18, fontFamily: "Montserrat" }}
+            style={{ margin: 18, fontFamily: "PT Mono" }}
           >
-            Cryptocurrency Prices by Market Cap
+            Cryptocurrency Prices:
           </Typography>
           <TextField
-            label="Search For a Crypto Currency.."
+            label="Search For Your Favorite Crypto..."
             variant="outlined"
             style={{ marginBottom: 20, width: "100%" }}
             onChange={(e) => setSearch(e.target.value)}
           />
           <TableContainer component={Paper}>
             {loading ? (
-              <LinearProgress style={{ backgroundColor: "gold" }} />
+              <LinearProgress style={{ backgroundColor: "LightBlue" }} />
             ) : (
               <Table aria-label="simple table">
-                <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+                <TableHead style={{ backgroundColor: "grey" }}>
                   <TableRow>
                     {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                       <TableCell
                         style={{
-                          color: "black",
+                          color: "#2eb8b8",
                           fontWeight: "700",
-                          fontFamily: "Montserrat",
+                          fontFamily: "PT Mono",
                         }}
                         key={head}
                         align={head === "Coin" ? "" : "right"}
@@ -144,7 +144,7 @@ export function numberWithCommas(x) {
                               >
                                 {row.symbol}
                               </span>
-                              <span style={{ color: "darkgrey" }}>
+                              <span style={{ color: "#2eb8b8" }}>
                                 {row.name}
                               </span>
                             </div>
