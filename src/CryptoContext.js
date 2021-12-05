@@ -1,15 +1,14 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
-
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const Crypto = createContext();
 
 const CryptoContext = ({ children }) => {
-  const [currency,setCurrency] = useState("USD");
+  const [currency, setCurrency] = useState("USD");
   const [symbol, setSymbol] = useState("$");
 
   useEffect(() => {
     if (currency === "USD") setSymbol("$");
-    else if (currency === "BRL") setSymbol("R$");
+    else if (currency === "EUR") setSymbol("€");
   }, [currency]);
 
   return (

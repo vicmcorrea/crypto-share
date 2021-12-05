@@ -3,22 +3,23 @@ import {
   Container,
   createTheme,
   makeStyles,
+  Menu,
   MenuItem,
   Select,
   Toolbar,
   Typography,
   ThemeProvider,
-  FormControl,
-  InputLabel,
   Button,
   IconButton,
+  List,
 } from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
+
+import React, { useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
-import React from "react";
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 import logo from "./cOre share.svg";
+import { ListAlt } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -43,6 +44,15 @@ const darkTheme = createTheme({
 });
 
 function Header() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   const classes = useStyles();
   const { currency, setCurrency } = CryptoState();
 
@@ -73,7 +83,7 @@ function Header() {
               onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value={"USD"}>USD</MenuItem>
-              <MenuItem value={"BRL"}>BRL</MenuItem>
+              <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
 
             <Button
@@ -87,9 +97,25 @@ function Header() {
             >
               CONTACT
             </Button>
-            <Button variant="contained" style={{ width: 100, height: 40 }}>
-              LOGIN
-            </Button>
+            <IconButton
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              aria-label="List"
+              onClick={handleClick}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+              <MenuItem onClick={handleClose}>Logout</MenuItem>
+            </Menu>
           </Toolbar>
         </Container>
       </AppBar>

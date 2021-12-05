@@ -1,87 +1,67 @@
-
-import { Container, makeStyles, Typography } from '@material-ui/core'
-import React from 'react'
-import Carousel from './Carousel';
-
-
-
-
+import { Container, makeStyles, Typography } from "@material-ui/core";
+import React from "react";
+import Carousel from "./Carousel";
 
 const useStyles = makeStyles(() => ({
-    banner: {
-      backgroundImage: "url(./banner2.png)",
+  banner: {
+    backgroundImage: "url(./banner2.png)",
+  },
+  bannerContent: {
+    height: 400,
+    display: "flex",
+    flexDirection: "column",
+    paddingTop: 25,
+    justifyContent: "space-around",
+  },
 
-    },
-    bannerContent: {
-        height: 400,
-        display: "flex",
-        flexDirection: "column",
-        paddingTop: 25,
-        justifyContent: "space-around",
-      },
-
-
-      tagline: {
-        display: "flex",
-        height: "40%",
-        flexDirection: "column",
-        justifyContent: "center",
-        textAlign: "center",
-      },
-      carousel: {
-        height: "50%",
-        display: "flex",
-        alignItems: "center",
-      },
-
+  tagline: {
+    display: "flex",
+    height: "40%",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center",
+  },
+  carousel: {
+    height: "50%",
+    display: "flex",
+    alignItems: "center",
+  },
 }));
 
 const Banner = () => {
+  const classes = useStyles();
 
-    const classes = useStyles();
-
-    return (
-
-        <div className={classes.banner}>
-
-           <Container className={classes.bannerContent}>
-
-               <div className={classes.tagline}>
-
-                    <Typography variant="outlined"  variant="h3"
-                    style={{
-                      fontWeight: "bold",
-                     marginBottom: 15,
-                     fontFamily: "PT Mono",
-                     color: "#2eb8b8"
-                     
-                        }}
+  return (
+    <div className={classes.banner}>
+      <Container className={classes.bannerContent}>
+        <div className={classes.tagline}>
+          <Typography
+            variant="outlined"
+            variant="h3"
+            style={{
+              fontWeight: "",
+              marginBottom: 15,
+              fontFamily: "Bungee",
+              color: "#2eb8b8",
+            }}
           >
-            CRYPTO SHARE 
+            CRYPTO SHARE
           </Typography>
           <Typography
             variant="subtitle2"
             style={{
               color: "#2eb8b8",
               textTransform: "capitalize",
-              fontFamily: "LATO",
+              fontFamily: "Bungee",
             }}
           >
-
-              TO THE MOON
+            TO THE MOON
           </Typography>
-
-
-
-               </div>
-               <Carousel />
-
-           </Container>
-
-
-
         </div>
-    )
-}
+        <Carousel />
+      </Container>
+    </div>
+  );
+};
 
-export default Banner
+export default Banner;

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');* {
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,10 +8,9 @@
 
 a {
   text-decoration: none;
-  color: #03989e;
+  color: black;
 }
 .logo {
   display: inline-flex !important;
-  margin-left: 15px;
+  margin-left: 3px;
 }
-
