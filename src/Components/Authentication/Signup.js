@@ -80,7 +80,7 @@ const Signup = ({ handleClose }) => {
       <Button
         variant="contained"
         size="large"
-        style={{ backgroundColor: "#EEBC1D" }}
+        style={{ fontFamily: "Bungee", backgroundColor: "#2eb8b8" }}
         onClick={handleSubmit}
       >
         Sign Up

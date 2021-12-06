@@ -28,14 +28,14 @@ const useStyles = makeStyles({
   logout: {
     height: "8%",
     width: "100%",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#2eb8b8",
     marginTop: 20,
   },
   picture: {
     width: 200,
     height: 200,
     cursor: "pointer",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#2eb8b8",
     objectFit: "contain",
   },
   watchlist: {
@@ -59,7 +59,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#2eb8b8",
     boxShadow: "0 0 3px black",
   },
 });
@@ -67,7 +67,7 @@ const useStyles = makeStyles({
 export default function UserSidebar() {
   const classes = useStyles();
   const [state, setState] = React.useState({
-    right: false,
+    left: false,
   });
   const { user, setAlert, watchlist, coins, symbol } = CryptoState();
 
@@ -120,7 +120,7 @@ export default function UserSidebar() {
 
   return (
     <div>
-      {["right"].map((anchor) => (
+      {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Avatar
             onClick={toggleDrawer(anchor, true)}
@@ -129,7 +129,7 @@ export default function UserSidebar() {
               width: 38,
               marginLeft: 15,
               cursor: "pointer",
-              backgroundColor: "#EEBC1D",
+              backgroundColor: "#2eb8b8",
             }}
             src={user.photoURL}
             alt={user.displayName || user.email}
@@ -159,7 +159,7 @@ export default function UserSidebar() {
                 </span>
                 <div className={classes.watchlist}>
                   <span style={{ fontSize: 15, textShadow: "0 0 5px black" }}>
-                    Watchlist
+                    Favorites:
                   </span>
                   {coins.map((coin) => {
                     if (watchlist.includes(coin.id))

@@ -10,16 +10,53 @@ import {
   Typography,
   ThemeProvider,
   IconButton,
+  withStyles,
+  Button,
+  ListItemIcon,
+  ListItemText,
 } from "@material-ui/core";
 
 import React, { useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useHistory } from "react-router-dom";
+
 import { CryptoState } from "../CryptoContext";
 import logo from "./cOre share.svg";
 
 import AuthModal from "./Authentication/AuthModal";
 import UserSidebar from "./UserSidebar";
+import { Email, Radio } from "@material-ui/icons";
+
+const StyledMenu = withStyles({
+  paper: {
+    border: "1px solid #d3d4d5",
+  },
+})((props) => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: "bottom",
+      horizontal: "center",
+    }}
+    transformOrigin={{
+      vertical: "top",
+      horizontal: "center",
+    }}
+    {...props}
+  />
+));
+
+const StyledMenuItem = withStyles((theme) => ({
+  root: {
+    "&:focus": {
+      backgroundColor: theme.palette.primary.main,
+      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
+        color: theme.palette.common.white,
+      },
+    },
+  },
+}))(MenuItem);
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -95,23 +132,34 @@ function Header() {
             {user ? <UserSidebar /> : <AuthModal />}
 
             <IconButton
-              aria-controls="simple-menu"
+              aria-controls="customized-menu"
               aria-haspopup="true"
+              variant="contained"
               aria-label="List"
               onClick={handleClick}
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="simple-menu"
+            <StyledMenu
+              id="customized-menu"
               anchorEl={anchorEl}
               keepMounted
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Contact</MenuItem>
-              <MenuItem onClick={handleClose}>API's used</MenuItem>
-            </Menu>
+              <StyledMenuItem>
+                <ListItemIcon>
+                  <Email fontSize="small" />
+                </ListItemIcon>
+                <ListItemText primary="Contact" />
+              </StyledMenuItem>
+              <StyledMenuItem>
+                <ListItemIcon>
+                  <Radio fontSize="small" />
+                </ListItemIcon>
+                <ListItemText primary="API's used" />
+              </StyledMenuItem>
+            </StyledMenu>
           </Toolbar>
         </Container>
       </AppBar>

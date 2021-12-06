@@ -110,23 +110,29 @@ export default function AuthModal() {
               position="static"
               style={{
                 backgroundColor: "transparent",
-                color: "white",
+                backgroundColor: "#2eb8b8",
+                fontFamily: "Bungee",
               }}
             >
               <Tabs
                 value={value}
                 onChange={handleChange}
                 variant="fullWidth"
-                style={{ borderRadius: 10 }}
+                style={{ fontFamily: "Bungee", borderRadius: 10 }}
               >
-                <Tab label="Login" />
-                <Tab label="Sign Up" />
+                <Tab label="Login" style={{ fontFamily: "Bungee" }} />
+                <Tab label="Sign Up" style={{ fontFamily: "Bungee" }} />
               </Tabs>
             </AppBar>
             {value === 0 && <Login handleClose={handleClose} />}
-            {value === 1 && <Signup handleClose={handleClose} />}
+            {value === 1 && (
+              <Signup
+                handleClose={handleClose}
+                style={{ fontFamily: "Bungee", color: "#2eb8b8" }}
+              />
+            )}
             <Box className={classes.google}>
-              <span>OR</span>
+              <span style={{ fontFamily: "Bungee", color: "#2eb8b8" }}>OR</span>
               <GoogleButton
                 style={{ width: "100%", outline: "none" }}
                 onClick={signInWithGoogle}
