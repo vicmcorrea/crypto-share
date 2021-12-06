@@ -9,9 +9,7 @@ import {
   Toolbar,
   Typography,
   ThemeProvider,
-  Button,
   IconButton,
-  List,
 } from "@material-ui/core";
 
 import React, { useState } from "react";
@@ -19,13 +17,15 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 import logo from "./cOre share.svg";
-import { ListAlt } from "@material-ui/icons";
+
+import AuthModal from "./Authentication/AuthModal";
+import UserSidebar from "./UserSidebar";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
-    color: "gold",
-    fontFamily: "Montserrat",
+    color: "#2eb8b8",
+    fontFamily: "Bungee",
     fontWeight: "bold",
     cursor: "pointer",
   },
@@ -37,9 +37,9 @@ const useStyles = makeStyles((theme) => ({
 const darkTheme = createTheme({
   palette: {
     primary: {
-      main: "#fff",
+      main: "#2eb8b8",
     },
-    type: "dark",
+    type: "light",
   },
 });
 
@@ -54,7 +54,7 @@ function Header() {
     setAnchorEl(null);
   };
   const classes = useStyles();
-  const { currency, setCurrency } = CryptoState();
+  const { currency, setCurrency, user } = CryptoState();
 
   const history = useHistory();
 
@@ -79,24 +79,21 @@ function Header() {
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={currency}
-              style={{ width: 100, height: 40, marginLeft: 15 }}
+              style={{
+                backgroundColor: "#2eb8b8",
+                fontFamily: "Bungee",
+                width: 100,
+                height: 40,
+                marginLeft: 15,
+              }}
               onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
 
-            <Button
-              variant="contained"
-              style={{
-                width: 100,
-                height: 40,
-                marginLeft: 15,
-                marginRight: 15,
-              }}
-            >
-              CONTACT
-            </Button>
+            {user ? <UserSidebar /> : <AuthModal />}
+
             <IconButton
               aria-controls="simple-menu"
               aria-haspopup="true"
@@ -112,9 +109,8 @@ function Header() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
+              <MenuItem onClick={handleClose}>Contact</MenuItem>
+              <MenuItem onClick={handleClose}>API's used</MenuItem>
             </Menu>
           </Toolbar>
         </Container>

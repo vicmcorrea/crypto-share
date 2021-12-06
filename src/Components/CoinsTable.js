@@ -26,25 +26,23 @@ export function numberWithCommas(x) {
 }
 
 export default function CoinsTable() {
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
 
-  const { currency, symbol } = CryptoState();
+  const { symbol, coins, loading } = CryptoState();
 
   const useStyles = makeStyles({
     row: {
-      backgroundColor: "#dfe3e4",
+      backgroundColor: "white",
       cursor: "pointer",
       "&:hover": {
-        backgroundColor: "whitesmoke",
+        backgroundColor: "teal",
       },
-      fontFamily: "PT Mono",
+      fontFamily: "Bungee",
     },
     pagination: {
       "& .MuiPaginationItem-root": {
-        color: "black",
+        color: "teal",
       },
     },
   });
@@ -60,19 +58,6 @@ export default function CoinsTable() {
       type: "light",
     },
   });
-
-  const fetchCoins = async () => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-    console.log(data);
-
-    setCoins(data);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchCoins();
-  }, [currency]);
 
   const handleSearch = () => {
     return coins.filter(
@@ -92,32 +77,27 @@ export default function CoinsTable() {
           Market Cap:
         </Typography>
         <TextField
-          color="black"
-          label="Search For Your Favorite Crypto..."
+          label="Search For a Crypto Currency.."
           variant="outlined"
-          style={{ color: "black", marginBottom: 20, width: "100%" }}
+          style={{ marginBottom: 20, width: "100%" }}
           onChange={(e) => setSearch(e.target.value)}
         />
         <TableContainer component={Paper}>
           {loading ? (
-            <LinearProgress style={{ backgroundColor: "LightBlue" }} />
+            <LinearProgress style={{ backgroundColor: "#2eb8b8" }} />
           ) : (
             <Table aria-label="simple table">
-              <TableHead
-                style={{
-                  backgroundColor: "#2eb8b8",
-                }}
-              >
+              <TableHead style={{ backgroundColor: "#2eb8b8" }}>
                 <TableRow>
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell
                       style={{
                         color: "black",
-                        fontWeight: "500",
+                        fontWeight: "700",
                         fontFamily: "Bungee",
                       }}
                       key={head}
-                      align={head === "Coin" ? "" : "right"}
+                      align={head === "Coin" ? "left" : "right"}
                     >
                       {head}
                     </TableCell>
@@ -156,41 +136,39 @@ export default function CoinsTable() {
                           >
                             <span
                               style={{
+                                fontFamily: "Bungee",
                                 textTransform: "uppercase",
                                 fontSize: 22,
-                                color: "black",
+                                color: "#2eb8b8",
                               }}
                             >
                               {row.symbol}
                             </span>
-                            <span style={{ color: "black" }}>{row.name}</span>
+                            <span
+                              style={{
+                                color: "black",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {row.name}
+                            </span>
                           </div>
                         </TableCell>
-                        <TableCell
-                          align="right"
-                          style={{
-                            color: "black",
-                          }}
-                        >
+                        <TableCell align="right">
                           {symbol}{" "}
                           {numberWithCommas(row.current_price.toFixed(2))}
                         </TableCell>
                         <TableCell
                           align="right"
                           style={{
-                            color: profit > 0 ? "rgb(15, 203, 129)" : "red",
+                            color: profit > 0 ? "rgb(14, 203, 129)" : "red",
                             fontWeight: 500,
                           }}
                         >
                           {profit && "+"}
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
-                        <TableCell
-                          align="right"
-                          style={{
-                            color: "black",
-                          }}
-                        >
+                        <TableCell align="right">
                           {symbol}{" "}
                           {numberWithCommas(
                             row.market_cap.toString().slice(0, -6)
@@ -207,7 +185,7 @@ export default function CoinsTable() {
 
         {/* Comes from @material-ui/lab */}
         <Pagination
-          count={(handleSearch()?.length / 10).toFixed(0)}
+          count={parseInt((handleSearch()?.length / 10).toFixed(0))}
           style={{
             padding: 20,
             width: "100%",
