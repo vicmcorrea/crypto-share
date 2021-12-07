@@ -27,7 +27,6 @@ import AuthModal from "./Authentication/AuthModal";
 import UserSidebar from "./UserSidebar";
 import { Email, Radio } from "@material-ui/icons";
 import ButtonMailto from "./ButtonMailto";
-import ApiList from "../Pages/ApiList";
 
 const StyledMenu = withStyles({
   paper: {
@@ -161,11 +160,15 @@ function Header() {
               </StyledMenuItem>
               <StyledMenuItem>
                 <ListItemIcon>
-                  <Radio fontSize="small" />
+                  <Radio
+                    onClick={() => history.push(`../apilist`)}
+                    fontSize="small"
+                  />
                 </ListItemIcon>
-                <Link to="../Pages/ApiList" className="btn btn-primary">
-                  API's used
-                </Link>
+                <ListItemText
+                  onClick={() => history.push(`../apilist`)}
+                  primary="API's used"
+                />
               </StyledMenuItem>
             </StyledMenu>
           </Toolbar>

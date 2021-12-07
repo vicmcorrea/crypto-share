@@ -1,11 +1,21 @@
+import { Grid } from "@material-ui/core";
 import React from "react";
-import BasicTable from "../Components/BasicTable";
+import CustomizedTables from "../Components/CustomizedTables";
 
 const ApiList = () => {
   return (
-    <>
-      <BasicTable />
-    </>
+    <Grid
+      container
+      justify="center"
+      alignItems="center"
+      direction="column"
+      style={{ minHeight: "30vh" }}
+      spacing={5}
+    >
+      <>
+        <CustomizedTables />
+      </>
+    </Grid>
   );
 };
 
