@@ -18,7 +18,7 @@ import {
 
 import React, { useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { CryptoState } from "../CryptoContext";
 import logo from "./cOre share.svg";
@@ -26,6 +26,8 @@ import logo from "./cOre share.svg";
 import AuthModal from "./Authentication/AuthModal";
 import UserSidebar from "./UserSidebar";
 import { Email, Radio } from "@material-ui/icons";
+import ButtonMailto from "./ButtonMailto";
+import ApiList from "../Pages/ApiList";
 
 const StyledMenu = withStyles({
   paper: {
@@ -151,13 +153,19 @@ function Header() {
                 <ListItemIcon>
                   <Email fontSize="small" />
                 </ListItemIcon>
-                <ListItemText primary="Contact" />
+                <ButtonMailto
+                  label="Contact"
+                  mailto="mailto:jmarinhocorr2021@fau.edu"
+                />
+                <ListItemText primary="" />
               </StyledMenuItem>
               <StyledMenuItem>
                 <ListItemIcon>
                   <Radio fontSize="small" />
                 </ListItemIcon>
-                <ListItemText primary="API's used" />
+                <Link to="../Pages/ApiList" className="btn btn-primary">
+                  API's used
+                </Link>
               </StyledMenuItem>
             </StyledMenu>
           </Toolbar>
