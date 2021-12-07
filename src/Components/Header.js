@@ -11,22 +11,20 @@ import {
   ThemeProvider,
   IconButton,
   withStyles,
-  Button,
   ListItemIcon,
   ListItemText,
 } from "@material-ui/core";
 
 import React, { useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Link, useHistory } from "react-router-dom";
-
+import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 import logo from "./cOre share.svg";
-
 import AuthModal from "./Authentication/AuthModal";
 import UserSidebar from "./UserSidebar";
 import { Email, Radio } from "@material-ui/icons";
 import ButtonMailto from "./ButtonMailto";
+import Home from "@material-ui/icons/Home";
 
 const StyledMenu = withStyles({
   paper: {
@@ -82,7 +80,7 @@ const darkTheme = createTheme({
 });
 
 function Header() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -116,7 +114,7 @@ function Header() {
               variant="outlined"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              defaultValue="USD"
+              defaultValue={"USD"}
               value={currency}
               style={{
                 backgroundColor: "#2eb8b8",
@@ -149,6 +147,16 @@ function Header() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
+              <StyledMenuItem>
+                <ListItemIcon>
+                  <Home fontSize="small" onClick={() => history.push(`./`)} />
+                </ListItemIcon>
+
+                <ListItemText
+                  onClick={() => history.push(`./`)}
+                  primary="Home"
+                />
+              </StyledMenuItem>
               <StyledMenuItem>
                 <ListItemIcon>
                   <Email fontSize="small" />
