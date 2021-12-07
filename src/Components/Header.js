@@ -25,7 +25,7 @@ import logo from "./cOre share.svg";
 
 import AuthModal from "./Authentication/AuthModal";
 import UserSidebar from "./UserSidebar";
-import { Email, Radio } from "@material-ui/icons";
+import { Email, Home, Radio } from "@material-ui/icons";
 import ButtonMailto from "./ButtonMailto";
 
 const StyledMenu = withStyles({
@@ -149,6 +149,12 @@ function Header() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
+              <StyledMenuItem onClick={() => history.push(`./`)}>
+                <ListItemIcon>
+                  <Home fontSize="big" />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+              </StyledMenuItem>
               <StyledMenuItem>
                 <ListItemIcon>
                   <Email fontSize="small" />
@@ -159,17 +165,11 @@ function Header() {
                 />
                 <ListItemText primary="" />
               </StyledMenuItem>
-              <StyledMenuItem>
+              <StyledMenuItem onClick={() => history.push(`../apilist`)}>
                 <ListItemIcon>
-                  <Radio
-                    onClick={() => history.push(`../apilist`)}
-                    fontSize="small"
-                  />
+                  <Radio fontSize="small" />
                 </ListItemIcon>
-                <ListItemText
-                  onClick={() => history.push(`../apilist`)}
-                  primary="API's used"
-                />
+                <ListItemText primary="API's used" />
               </StyledMenuItem>
             </StyledMenu>
           </Toolbar>
