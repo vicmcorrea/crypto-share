@@ -116,6 +116,7 @@ function Header() {
               variant="outlined"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
+              defaultValue="USD"
               value={currency}
               style={{
                 backgroundColor: "#2eb8b8",
