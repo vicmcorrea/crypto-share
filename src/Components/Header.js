@@ -11,7 +11,6 @@ import {
   ThemeProvider,
   IconButton,
   withStyles,
-  Button,
   ListItemIcon,
   ListItemText,
 } from "@material-ui/core";
@@ -116,7 +115,7 @@ function Header() {
               variant="outlined"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              defaultValue="USD"
+              defaultValue={"USD"}
               value={currency}
               style={{
                 backgroundColor: "#2eb8b8",
@@ -129,6 +128,13 @@ function Header() {
             >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"EUR"}>EUR</MenuItem>
+              <MenuItem value={"BRL"}>BRL</MenuItem>
+              <MenuItem value={"GBP"}>GBP</MenuItem>
+              <MenuItem value={"RUB"}>RUB</MenuItem>
+              <MenuItem value={"JPY"}>JPY</MenuItem>
+              <MenuItem value={"CAD"}>CAD</MenuItem>
+              <MenuItem value={"AUD"}>AUD</MenuItem>
+              <MenuItem value={"CNY"}>CNY</MenuItem>
             </Select>
 
             {user ? <UserSidebar /> : <AuthModal />}
@@ -149,7 +155,7 @@ function Header() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <StyledMenuItem onClick={() => history.push(`./`)}>
+              <StyledMenuItem onClick={() => history.push(`../`)}>
                 <ListItemIcon>
                   <Home fontSize="big" />
                 </ListItemIcon>

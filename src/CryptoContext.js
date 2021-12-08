@@ -8,8 +8,8 @@ import { onSnapshot, doc } from "firebase/firestore";
 const Crypto = createContext();
 
 const CryptoContext = ({ children }) => {
-  const [currency, setCurrency] = useState("INR");
-  const [symbol, setSymbol] = useState("₹");
+  const [currency, setCurrency] = useState("USD");
+  const [symbol, setSymbol] = useState("$");
   const [alert, setAlert] = useState({
     open: false,
     message: "",
@@ -28,7 +28,7 @@ const CryptoContext = ({ children }) => {
           console.log(coin.data().coins);
           setWatchlist(coin.data().coins);
         } else {
-          console.log("No Items in Watchlist");
+          console.log("No Items in Favorites");
         }
       });
 
@@ -57,6 +57,13 @@ const CryptoContext = ({ children }) => {
 
   useEffect(() => {
     if (currency === "USD") setSymbol("$");
+    if (currency === "BRL") setSymbol("R$");
+    if (currency === "GBP") setSymbol("£");
+    if (currency === "RUB") setSymbol("₽");
+    if (currency === "JPY") setSymbol("¥");
+    if (currency === "CAD") setSymbol("CA$");
+    if (currency === "AUD") setSymbol("A$");
+    if (currency === "CNY") setSymbol("CN¥");
     else if (currency === "EUR") setSymbol("€");
 
     fetchCoins();

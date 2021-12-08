@@ -98,15 +98,17 @@ const CoinPage = () => {
       alignItems: "center",
       marginTop: 25,
       borderRight: "2px solid grey",
+      color: "black",
     },
     heading: {
       fontWeight: "bold",
       marginBottom: 20,
-      fontFamily: "Montserrat",
+      fontFamily: "Bungee",
+      color: "black",
     },
     description: {
       width: "100%",
-      fontFamily: "Montserrat",
+      fontFamily: "Bungee",
       padding: 25,
       paddingBottom: 15,
       paddingTop: 0,
@@ -130,7 +132,7 @@ const CoinPage = () => {
 
   const classes = useStyles();
 
-  if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
+  if (!coin) return <LinearProgress style={{ backgroundColor: "teal" }} />;
 
   return (
     <div className={classes.container}>
@@ -156,7 +158,7 @@ const CoinPage = () => {
             <Typography
               variant="h5"
               style={{
-                fontFamily: "Montserrat",
+                fontFamily: "Bungee",
               }}
             >
               {numberWithCommas(coin?.market_cap_rank)}
@@ -170,7 +172,7 @@ const CoinPage = () => {
             <Typography
               variant="h5"
               style={{
-                fontFamily: "Montserrat",
+                fontFamily: "Bungee",
               }}
             >
               {symbol}{" "}
@@ -187,7 +189,7 @@ const CoinPage = () => {
             <Typography
               variant="h5"
               style={{
-                fontFamily: "Montserrat",
+                fontFamily: "Bungee",
               }}
             >
               {symbol}{" "}
@@ -205,11 +207,11 @@ const CoinPage = () => {
               style={{
                 width: "100%",
                 height: 40,
-                backgroundColor: inWatchlist ? "#ff0000" : "#EEBC1D",
+                backgroundColor: inWatchlist ? "#2eb8b8" : "#2eb8b8",
               }}
               onClick={inWatchlist ? removeFromWatchlist : addToWatchlist}
             >
-              {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
+              {inWatchlist ? "Remove from Favorites" : "Add to Favorites"}
             </Button>
           )}
         </div>
