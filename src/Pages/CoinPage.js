@@ -109,6 +109,10 @@ const CoinPage = () => {
       color: "black",
     },
     description: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
       width: "100%",
       alignItems: "center",
       fontFamily: "Bungee",
@@ -118,6 +122,10 @@ const CoinPage = () => {
       textAlign: "justify",
     },
     marketData: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
       alignSelf: "start",
       alignItems: "center",
       padding: 25,

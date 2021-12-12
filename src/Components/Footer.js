@@ -6,7 +6,6 @@ export default function Footer() {
   return (
     <footer>
       <box
-        alignImte
         px={{ xs: 10, sm: 10 }}
         py={{ xs: 10, sm: 10 }}
         backgroundColor="black"
@@ -38,8 +37,8 @@ export default function Footer() {
           <Box
             color="black"
             textAlign="Center"
-            pt={{ xs: 5, sm: 10 }}
-            pb={{ xs: 5, sm: 1 }}
+            pt={{ xs: 4, sm: 10 }}
+            pb={{ xs: 4, sm: 1 }}
           >
             Victor Marinho Correa &reg; 2021 <br /> Z23592731
           </Box>
