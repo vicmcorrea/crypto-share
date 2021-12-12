@@ -89,7 +89,8 @@ const CoinPage = () => {
       },
     },
     sidebar: {
-      width: "30%",
+      width: "100%",
+      alignItems: "center",
       [theme.breakpoints.down("md")]: {
         width: "100%",
       },
@@ -97,10 +98,11 @@ const CoinPage = () => {
       flexDirection: "column",
       alignItems: "center",
       marginTop: 25,
-      borderRight: "2px solid grey",
+
       color: "black",
     },
     heading: {
+      alignItems: "center",
       fontWeight: "bold",
       marginBottom: 20,
       fontFamily: "Bungee",
@@ -108,6 +110,7 @@ const CoinPage = () => {
     },
     description: {
       width: "100%",
+      alignItems: "center",
       fontFamily: "Bungee",
       padding: 25,
       paddingBottom: 15,
@@ -116,6 +119,7 @@ const CoinPage = () => {
     },
     marketData: {
       alignSelf: "start",
+      alignItems: "center",
       padding: 25,
       paddingTop: 10,
       width: "100%",

@@ -6,7 +6,7 @@ import { CryptoState } from "../CryptoContext";
 import { auth, db } from "../firebase";
 import { numberWithCommas } from "./CoinsTable";
 
-import { Public } from "@material-ui/icons";
+import { DeleteOutline, Public } from "@material-ui/icons";
 
 const useStyles = makeStyles({
   container: {
@@ -169,7 +169,7 @@ export default function UserSidebar() {
                           <span style={{ display: "flex", gap: 8 }}>
                             {symbol}{" "}
                             {numberWithCommas(coin.current_price.toFixed(2))}
-                            <Public
+                            <DeleteOutline
                               style={{ cursor: "pointer" }}
                               fontSize="16"
                               onClick={() => removeFromWatchlist(coin)}

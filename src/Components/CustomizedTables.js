@@ -44,7 +44,6 @@ function createData(name, calories, fat, carbs, protein) {
 
 const rows = [
   createData("CoinGeckoAPI", "https://www.coingecko.com/en/api/documentation"),
-  createData("NYTimesAPI", "https://developer.nytimes.com/apis"),
 ];
 
 export default function CustomizedTables() {
