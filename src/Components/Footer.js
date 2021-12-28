@@ -40,7 +40,13 @@ export default function Footer() {
             pt={{ xs: 4, sm: 10 }}
             pb={{ xs: 4, sm: 1 }}
           >
-            Victor Marinho Correa &reg; 2021 <br /> Z23592731
+            J.Victor Marinho Correa &reg; 2021 <br /> Powered By :{" "}
+            <Link
+              href="https://www.coingecko.com/en/api/documentation"
+              color="blue"
+            >
+              CoinGecko API
+            </Link>
           </Box>
         </Container>
       </box>

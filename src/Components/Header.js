@@ -13,6 +13,7 @@ import {
   withStyles,
   ListItemIcon,
   ListItemText,
+  Button,
 } from "@material-ui/core";
 
 import React, { useState } from "react";
@@ -138,46 +139,6 @@ function Header() {
             </Select>
 
             {user ? <UserSidebar /> : <AuthModal />}
-
-            <IconButton
-              aria-controls="customized-menu"
-              aria-haspopup="true"
-              variant="contained"
-              aria-label="List"
-              onClick={handleClick}
-            >
-              <MenuIcon />
-            </IconButton>
-            <StyledMenu
-              id="customized-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <StyledMenuItem onClick={() => history.push(`../`)}>
-                <ListItemIcon>
-                  <Home fontSize="big" />
-                </ListItemIcon>
-                <ListItemText primary="Home" />
-              </StyledMenuItem>
-              <StyledMenuItem>
-                <ListItemIcon>
-                  <Email fontSize="small" />
-                </ListItemIcon>
-                <ButtonMailto
-                  label="Contact"
-                  mailto="mailto:jmarinhocorr2021@fau.edu"
-                />
-                <ListItemText primary="" />
-              </StyledMenuItem>
-              <StyledMenuItem onClick={() => history.push(`../apilist`)}>
-                <ListItemIcon>
-                  <Radio fontSize="small" />
-                </ListItemIcon>
-                <ListItemText primary="API's used" />
-              </StyledMenuItem>
-            </StyledMenu>
           </Toolbar>
         </Container>
       </AppBar>

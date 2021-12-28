@@ -3,5 +3,4 @@ Made using CoinGecko API, ReactJS, Materials UI, Charts JS.
 
 In this project you can track your favorite cryptocurrency, create an account or login thorugh google and add your favorite cryptos to your profile.
 
-Final project for COP4655.
 https://crypto-share.netlify.app/
