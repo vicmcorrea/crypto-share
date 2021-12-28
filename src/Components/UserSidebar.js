@@ -148,8 +148,9 @@ export default function UserSidebar() {
                 />
                 <span
                   style={{
+                    fontFamily: "Bungee",
                     width: "100%",
-                    fontSize: 25,
+                    fontSize: 16,
                     textAlign: "center",
                     fontWeight: "bolder",
                     wordWrap: "break-word",
@@ -158,7 +159,13 @@ export default function UserSidebar() {
                   {user.displayName || user.email}
                 </span>
                 <div className={classes.watchlist}>
-                  <span style={{ fontSize: 15, textShadow: "0 0 5px black" }}>
+                  <span
+                    style={{
+                      fontFamily: "Bungee",
+                      fontSize: 15,
+                      textShadow: "0 0 10px #2eb8b8",
+                    }}
+                  >
                     Favorites:
                   </span>
                   {coins.map((coin) => {
@@ -182,6 +189,7 @@ export default function UserSidebar() {
                 </div>
               </div>
               <Button
+                style={{ fontFamily: "Bungee" }}
                 variant="contained"
                 className={classes.logout}
                 onClick={logOut}

@@ -18,17 +18,33 @@ export default function Footer() {
                 {" "}
                 About me
               </Box>
-              <Box textAlign="Center">
+              <Box style={{ textShadow: "0 0 10px black" }} textAlign="Center">
                 <Link href="https://github.com/vicmcorrea" color="black">
                   Github
                 </Link>
               </Box>
-              <Box textAlign="Center" color="black">
+              <Box
+                style={{ textShadow: "0 0 10px black" }}
+                textAlign="Center"
+                color="black"
+              >
                 <Link
                   href="https://www.linkedin.com/in/victor-marinho-correa-001893220"
                   color="black"
                 >
                   Linkedin
+                </Link>
+              </Box>
+              <Box
+                style={{ textShadow: "0 0 10px black" }}
+                textAlign="Center"
+                color="black"
+              >
+                <Link
+                  href="mailto:jvictormarinhocorrea@gmail.com"
+                  color="black"
+                >
+                  Contact Me
                 </Link>
               </Box>
             </Grid>
@@ -42,6 +58,7 @@ export default function Footer() {
           >
             J.Victor Marinho Correa &reg; 2021 <br /> Powered By :{" "}
             <Link
+              style={{ textShadow: "0 0 10px black" }}
               href="https://www.coingecko.com/en/api/documentation"
               color="blue"
             >

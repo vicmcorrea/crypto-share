@@ -217,7 +217,8 @@ const CoinPage = () => {
             <Button
               variant="outlined"
               style={{
-                width: "100%",
+                fontFamily: "Bungee",
+                width: "400px",
                 height: 40,
                 backgroundColor: inWatchlist ? "#2eb8b8" : "#2eb8b8",
               }}
